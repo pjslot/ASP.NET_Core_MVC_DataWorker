@@ -1,7 +1,4 @@
-﻿
-
-
-<!--определяем тип модели для облегчения работы редактора-->
+﻿<!--определяем тип модели для облегчения работы редактора-->
 @model List<Band>
 @{
     //заголовок страницы
@@ -11,7 +8,9 @@
 }
 
 <div class="text-center">
-    <p>В базе @Model.Count групп.</p>
+    <h5>
+        <p>В базе @Model.Count групп.</p>
+    </h5>
     
     <div class="band-list" style="background-color: floralwhite">
     <table>
@@ -23,22 +22,23 @@
     </tr>
  
     @foreach (var item in Model)
- {
-<tr>
-<td>@item.Id</td>
-<td>@item.Name</td>
-<td>@item.Year</td>
-<td>@item.Country</td>
-<td>@Html.ActionLink("Подробнее", "Edit", item)
-    @Html.ActionLink("Удалить", "Delete", item)</td>
-</tr>
- }
+    { 
+        <tr>
+        <td>@item.Id</td>
+        <td>@item.Name</td>
+        <td>@item.Year</td>
+        <td>@item.Country</td>
+        <td>@Html.ActionLink("Изменить", "Edit", item)
+            @Html.ActionLink("Удалить", "Delete", item)</td>
+        </tr>
+    }
     </table>
     </div>
 
     <div class="band-list">
+        <h4>
         @Html.ActionLink("Добавить новую группу", "Create")
+        </h4>
     </div>
 
-   
 </div>

@@ -31,8 +31,47 @@ namespace ASP.NET_Core_MVC_DataWorker.Controllers
         {           
             MemoryDb.Bands.Add(band);
             //генерация ID
-            MemoryDb.Bands[MemoryDb.Bands.Count-1].Id = MemoryDb.Bands.Count-1;
+            MemoryDb.Bands[MemoryDb.Bands.Count-1].Id = MemoryDb.Bands[MemoryDb.Bands.Count - 2].Id+1;
             return RedirectToAction("Index", "Home"); 
+        }
+
+        //контроллеры удаления банды
+        [HttpGet]
+        public IActionResult Delete(Band band)
+        {
+            return View(band);
+        }
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            for (int i=0; i<MemoryDb.Bands.Count; i++)
+            {
+                if (MemoryDb.Bands[i].Id==id) MemoryDb.Bands.Remove(MemoryDb.Bands[i]);
+            }        
+            return RedirectToAction("Index", "Home");
+        }
+
+        //контроллеры редактирования банды
+        [HttpGet]
+        public IActionResult Edit(Band band)
+        {
+            return View(band);
+        }
+        [HttpPost]
+        public IActionResult Edit(Band band, int id)
+        {
+            for (int i = 0; i < MemoryDb.Bands.Count; i++)
+            {
+                if (MemoryDb.Bands[i].Id == band.Id)
+                {
+                    MemoryDb.Bands.Remove(MemoryDb.Bands[i]);
+                    MemoryDb.Bands.Add(band);                
+                } 
+            }
+            //сортируем по ID что б строчки не шли вразлёт
+            var sorted = MemoryDb.Bands.OrderBy(o => o.Id).ToList();
+            MemoryDb.Bands = sorted;
+            return RedirectToAction("Index", "Home");
         }
 
         public IActionResult Privacy()

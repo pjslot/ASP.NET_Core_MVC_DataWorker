@@ -1,0 +1,29 @@
+﻿
+@using ASP.NET_Core_MVC_DataWorker.Models;
+@model Band
+
+<h4>Удаление группы из базы.</h4>
+
+@using (Html.BeginForm("Delete", "Home"))
+{
+
+    <div class="dataBox">
+        <label>Вы уверены что хотите удалить </label> <br />
+    </div>
+    <b>@Model.Name</b>
+    <div>основанную в </div>
+    <b>@Model.Year</b>
+    <br>
+        <div><h1>?</h1> </div>
+    <br>
+
+    <div class="dataBox">
+        <input type="submit" value="Удалить" />
+    </div>
+
+    <div>
+        <a asp-action="Index"> Назад </a>
+    </div>
+
+
+} 
