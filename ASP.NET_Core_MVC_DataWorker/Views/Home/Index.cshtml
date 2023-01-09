@@ -1,0 +1,44 @@
+﻿
+
+
+<!--определяем тип модели для облегчения работы редактора-->
+@model List<Band>
+@{
+    //заголовок страницы
+    ViewData["Title"] = "База данных групп.";
+    //отключение штатного лейаута
+   // Layout = null;  
+}
+
+<div class="text-center">
+    <p>В базе @Model.Count групп.</p>
+    
+    <div class="band-list" style="background-color: floralwhite">
+    <table>
+    <tr>
+    <th>Id</th>
+    <th>Название</th>
+    <th>Год основания</th>
+    <th>Страна</th>
+    </tr>
+ 
+    @foreach (var item in Model)
+ {
+<tr>
+<td>@item.Id</td>
+<td>@item.Name</td>
+<td>@item.Year</td>
+<td>@item.Country</td>
+<td>@Html.ActionLink("Подробнее", "Edit", item)
+    @Html.ActionLink("Удалить", "Delete", item)</td>
+</tr>
+ }
+    </table>
+    </div>
+
+    <div class="band-list">
+        @Html.ActionLink("Добавить новую группу", "Create")
+    </div>
+
+   
+</div>

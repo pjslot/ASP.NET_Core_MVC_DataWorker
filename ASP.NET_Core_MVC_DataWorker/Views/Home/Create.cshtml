@@ -1,0 +1,54 @@
+﻿@using ASP.NET_Core_MVC_DataWorker.Models;
+
+@{
+    var bands = MemoryDb.Bands;
+    int i = bands.Count;
+}
+
+@model Band
+
+<h4>Добавление группы в базу.</h4>
+
+@using (Html.BeginForm("Create", "Home" ))
+{
+
+<div class="dataBox">
+<label>Название коллектива:</label> <br/> </div>
+@Html.TextBoxFor(m =>m.Name, new { @class = "text-box" })
+<br>
+
+<div class="dataBox">
+<label>Год основания:</label> <br/> </div>
+    @Html.DropDownListFor(m =>m.Year, new SelectList(new int[] { 1900,1910, 1920, 1930,1940,1950,1960,1970,1980,1990,2000,2010,2020 }))
+    <br>
+
+<div class="dataBox">
+<label>Страна:</label> <br/> </div>
+    @Html.RadioButtonFor(m=>m.Country,  "USA") <span>USA</span> <br/>
+    @Html.RadioButtonFor(m=>m.Country,  "RUS") <span>RUS</span> <br/>
+    @Html.RadioButtonFor(m=>m.Country,  "France") <span>France</span> <br/>
+    @Html.RadioButtonFor(m=>m.Country,  "Britain") <span>Britain</span> <br/>
+    @Html.RadioButtonFor(m=>m.Country,  "China") <span>China</span> <br/>
+    <br>
+
+
+//@Html.TextBoxFor(m =>m.Country, new { @class = "text-box" })
+
+    
+
+   
+
+
+ <div class="dataBox">
+    <input type="submit" value="Сохранить"/>
+ </div>
+
+ //уходим в пост запрос - и уже на том этапе запихиваем данные в базу данных.
+
+ <div>
+<a asp-action="Index"> Назад </a>
+</div>
+
+
+} 
+
