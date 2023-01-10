@@ -28,11 +28,20 @@ namespace ASP.NET_Core_MVC_DataWorker.Controllers
         }
         [HttpPost]
         public IActionResult Create(Band band)
-        {           
-            MemoryDb.Bands.Add(band);
-            //генерация ID
-            MemoryDb.Bands[MemoryDb.Bands.Count-1].Id = MemoryDb.Bands[MemoryDb.Bands.Count - 2].Id+1;
-            return RedirectToAction("Index", "Home"); 
+        {   //если возникла проблема
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            //если всё впорядке
+            else
+            {
+                MemoryDb.Bands.Add(band);
+                //генерация ID
+                MemoryDb.Bands[MemoryDb.Bands.Count - 1].Id = MemoryDb.Bands[MemoryDb.Bands.Count - 2].Id + 1;
+                return RedirectToAction("Index", "Home");
+            }
+            
         }
 
         //контроллеры удаления банды

@@ -3,10 +3,11 @@
 @model Band
 
 <h4>Добавление группы в базу.</h4>
+<!-- реакция на ошибки -->
+<h3 style = "color:red">@Html.ValidationSummary()</h3>
 
 @using (Html.BeginForm("Create", "Home" ))
 {
-
 <div class="dataBox">
 <label>Название коллектива:</label> <br/> </div>
 @Html.TextBoxFor(m =>m.Name, new { @class = "text-box" })
