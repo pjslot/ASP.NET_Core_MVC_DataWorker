@@ -26,10 +26,41 @@
     @Html.RadioButtonFor(m=>m.Country,  "RUS") <span>RUS</span> <br/>
     @Html.RadioButtonFor(m=>m.Country,  "France") <span>France</span> <br/>
     @Html.RadioButtonFor(m=>m.Country,  "Britain") <span>Britain</span> <br/>
-    @Html.RadioButtonFor(m=>m.Country,  "England") <span>England</span>
-    <br />
-    @Html.RadioButtonFor(m=>m.Country,  "Sweden") <span>Sweden</span>
-    <br />
+    @Html.RadioButtonFor(m=>m.Country,  "England") <span>England</span> <br />
+    @Html.RadioButtonFor(m=>m.Country,  "Sweden") <span>Sweden</span>  <br />
+
+    //предположим что музыкантов в каждой группе по три
+                <div class="dataBox">
+                <label>Имя музыканта номер 1:</label> <br/> </div>             
+                @Html.TextBoxFor(m => m.Musician1.Name, new { @class = "text-box" }) <br>
+
+                  <div class="dataBox">
+                  <label>Инструмент музыканта 1:</label> <br/> </div>
+                  @Html.RadioButtonFor(m=>m.Musician1.Instrument,  "Vocal") <span>Vocal</span> <br/>
+                   @Html.RadioButtonFor(m=>m.Musician1.Instrument,  "Guitar") <span>Guitar</span> <br/>
+    @Html.RadioButtonFor(m=>m.Musician1.Instrument,  "Drum") <span>Drum</span> <br/>
+
+                   <div class="dataBox">
+                <label>Имя музыканта номер 2:</label> <br/> </div>             
+                @Html.TextBoxFor(m => m.Musician2.Name, new { @class = "text-box" }) <br>
+
+                  <div class="dataBox">
+                  <label>Инструмент музыканта 2:</label> <br/> </div>
+                  @Html.RadioButtonFor(m=>m.Musician2.Instrument,  "Vocal") <span>Vocal</span> <br/>
+                   @Html.RadioButtonFor(m=>m.Musician2.Instrument,  "Guitar") <span>Guitar</span> <br/>
+                  @Html.RadioButtonFor(m=>m.Musician2.Instrument,  "Drum") <span>Drum</span> <br/>
+
+                       <div class="dataBox">
+                    <label>Имя музыканта номер 3:</label> <br/> </div>             
+    @Html.TextBoxFor(m => m.Musician3.Name, new { @class = "text-box" }) <br>
+
+                      <div class="dataBox">
+                      <label>Инструмент музыканта 3:</label> <br/> </div>
+    @Html.RadioButtonFor(m=>m.Musician3.Instrument,  "Vocal") <span>Vocal</span> <br/>
+    @Html.RadioButtonFor(m=>m.Musician3.Instrument,  "Guitar") <span>Guitar</span> <br/>
+    @Html.RadioButtonFor(m=>m.Musician3.Instrument,  "Drum") <span>Drum</span> <br/>
+                 
+   
 
 
  <div class="dataBox">

@@ -5,6 +5,8 @@
     ViewData["Title"] = "База данных групп.";
     //отключение штатного лейаута
    // Layout = null;  
+
+  
 }
 
 <div class="text-center">
@@ -19,15 +21,48 @@
     <th>Название</th>
     <th>Год основания</th>
     <th>Страна</th>
+     <th>Mus1ID</th>
+    <th>Имя</th>
+         <th>Инструмент</th>
+          <th>Mus2ID</th>
+          <th>Имя</th>
+         <th>Инструмент</th>
+          <th>Mus3ID</th>
+          <th>Имя</th>
+         <th>Инструмент</th>
     </tr>
  
     @foreach (var item in Model)
-    { 
-        <tr>
+            {
+               
+                <tr>
         <td>@item.Id</td>
         <td>@item.Name</td>
         <td>@item.Year</td>
         <td>@item.Country</td>
+          
+                   
+                    <!-- инициализация генератора ID-->  
+              @{
+                  if (item.Musician1.ID == 0) item.Musician1.ID=777;
+                  if (item.Musician2.ID == 0) item.Musician2.ID=777;
+                  if (item.Musician3.ID == 0) item.Musician3.ID = 777;
+                  
+               }
+                   
+
+              <td>@item.Musician1.ID</td>   
+                   <td>@item.Musician1.Name</td>    
+                        <td>@item.Musician1.Instrument</td>    
+
+                              <td>@item.Musician2.ID</td>   
+                       <td>@item.Musician2.Name</td>    
+                            <td>@item.Musician2.Instrument</td>    
+
+                                  <td>@item.Musician3.ID</td>   
+                       <td>@item.Musician3.Name</td>    
+                            <td>@item.Musician3.Instrument</td>    
+
         <td>@Html.ActionLink("Изменить", "Edit", item)
             @Html.ActionLink("Удалить", "Delete", item)</td>
         </tr>

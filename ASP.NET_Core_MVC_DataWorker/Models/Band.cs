@@ -13,5 +13,10 @@ namespace ASP.NET_Core_MVC_DataWorker.Models
         [Range (1950, 2024, ErrorMessage = "Год образования группы не может быть меньше 1950 или больше 2023")]
         public int Year { get; set; }
 
+        //музыканты, предположим в каждой группе строго по три
+        public Musician Musician1 { get; set;}
+        public Musician Musician2 { get; set; }
+        public Musician Musician3 { get; set; }
+
     }
 }
