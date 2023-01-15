@@ -4,9 +4,7 @@
     //заголовок страницы
     ViewData["Title"] = "База данных групп.";
     //отключение штатного лейаута
-   // Layout = null;  
-
-  
+   // Layout = null;   
 }
 
 <div class="text-center">
@@ -15,7 +13,7 @@
     </h5>
     
     <div class="band-list" style="background-color: floralwhite">
-    <table>
+    <table  border="5" bordercolor="grey">
     <tr>
     <th>Id</th>
     <th>Название</th>
@@ -39,18 +37,13 @@
         <td>@item.Id</td>
         <td>@item.Name</td>
         <td>@item.Year</td>
-        <td>@item.Country</td>
-          
-                   
+        <td>@item.Country</td>                           
                     <!-- инициализация генератора ID-->  
               @{
                   if (item.Musician1.ID == 0) item.Musician1.ID=777;
                   if (item.Musician2.ID == 0) item.Musician2.ID=777;
-                  if (item.Musician3.ID == 0) item.Musician3.ID = 777;
-                  
-               }
-                   
-
+                  if (item.Musician3.ID == 0) item.Musician3.ID = 777;                  
+               }                  
               <td>@item.Musician1.ID</td>   
                    <td>@item.Musician1.Name</td>    
                         <td>@item.Musician1.Instrument</td>    

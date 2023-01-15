@@ -30,9 +30,8 @@ namespace ASP.NET_Core_MVC_DataWorker.Models
         [Required(ErrorMessage = "Необходимо указать инструмент музыканта")]
         public string Instrument 
         {
-            get { if (instrument != null) return instrument; else return "NoInstrument"; }
-            set { if (value != null) instrument = value; else instrument = "NoInstrument"; }
-        }
-       
+            get { if (instrument != null) return instrument; else return "NoInstr"; }
+            set { if (value != null) instrument = value; else instrument = "NoInstr"; }
+        }       
     }
 }
